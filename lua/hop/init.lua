@@ -6,6 +6,7 @@ local K_BS = api.nvim_replace_termcodes('<BS>', true, false, true)
 local K_C_H = api.nvim_replace_termcodes('<C-H>', true, false, true)
 local K_CR = api.nvim_replace_termcodes('<CR>', true, false, true)
 local K_NL = api.nvim_replace_termcodes('<NL>', true, false, true)
+local K_SPACE = api.nvim_replace_termcodes('<Space>', true, false, true)
 
 -- Ensure options are sound.
 --
@@ -189,7 +190,7 @@ function M.get_input_pattern(prompt, maxchar, opts)
     if key == K_Esc then
       pat = nil
       break
-    elseif key == K_CR or key == K_NL then
+    elseif key == K_CR or key == K_NL or key == K_SPACE then
       break
     elseif key == K_BS or key == K_C_H then
       pat_keys[#pat_keys] = nil
